@@ -4,7 +4,6 @@
   "author": {
     "name": "LiGuang@wicture"
   },
-  "private": true,
   "dependencies": {
     "crypto": "0.0.3",
     "glob": "^7.1.1"
