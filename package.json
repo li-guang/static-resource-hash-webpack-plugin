@@ -1,0 +1,12 @@
+{
+  "name": "static-resource-hash-webpack-plugin",
+  "version": "1.0.0",
+  "author": {
+    "name": "LiGuang@wicture"
+  },
+  "private": true,
+  "dependencies": {
+    "crypto": "0.0.3",
+    "glob": "^7.1.1"
+  }
+}
