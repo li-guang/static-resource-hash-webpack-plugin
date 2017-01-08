@@ -12,7 +12,7 @@ var filePatterns = [
 
 /*
   {
-  	log: false,
+    log: false,
     hashLength: 8,
     destRoot: 'app',
     hashFiles: ['/**//*.js', '/**//*.css'],
@@ -43,9 +43,10 @@ StaticResHashPlugin.prototype.apply = function(compiler){
     globOpts = {
       root: path.resolve(path.join(process.cwd(), this.options.destRoot)),
       nodir: true,
+      log: !!this.options.log
     };
 
-		globOpts.log && console.log('current context path : ' + process.cwd());
+    globOpts.log && console.log('current context path : ' + process.cwd());
 
     var hashFiles = this.options.hashFiles;
     var hostFiles = this.options.hostFiles;
@@ -83,7 +84,7 @@ StaticResHashPlugin.prototype.apply = function(compiler){
 
     //rename hashFiles
     for(i=0;i<hashFileObjects.length;i++){
-			globOpts.log && console.log('file [' + hashFileObjects[i].path + '] execute rename --> [' + hashFileObjects[i].hashPath + ']');
+      globOpts.log && console.log('file [' + hashFileObjects[i].path + '] execute rename --> [' + hashFileObjects[i].hashPath + ']');
       fs.renameSync(hashFileObjects[i].path, hashFileObjects[i].hashPath);
     }
 
@@ -122,7 +123,7 @@ function updateHashRef(hostFilePath){
         //find hashvalue from hashFiles
         for(var j=0;j<hashFileObjects.length;j++){
           if(hashFileObjects[j].path === linkAbsPath){
-						globOpts.log && console.log('file [' + hostFilePath + '] execute replace [' + link + '] --> [' + hashFileObjects[j].hashBaseName + ']')
+            globOpts.log && console.log('file [' + hostFilePath + '] execute replace [' + link + '] --> [' + hashFileObjects[j].hashBaseName + ']')
             return sm01 + path.join(path.dirname(link), hashFileObjects[j].hashBaseName).replace(/\\/g, '/') + queryString + sm03;
           }
         }
