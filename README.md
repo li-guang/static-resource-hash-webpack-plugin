@@ -20,7 +20,8 @@ new StaticResHashPlugin({
   hashLength: 8,
   destRoot: 'dist',
   hashFiles: ['/img/**/*', '/components/**/*.html', '/fonts/**/*', '/*.js', '/404.html', '/css/*.css' ],
-  hostFiles: ['/**/*.js', '/**/*.html', '/css/*.css']
+  hostFiles: ['/**/*.js', '/**/*.html', '/css/*.css'],
+  delay: 0
 })
 ```
 - **log** 默认值为false，不输出Log信息
@@ -28,4 +29,5 @@ new StaticResHashPlugin({
 - **destRoot** 执行此Hash操作的目录，应该为输出目录
 - **hashFiles** 执行Hash操作的文件，即需要对哪些文件进行Hash重命名操作
 - **hostFiles** 在哪些文件里面查找文件引用，并执行替换
+- **delay** 此操作的执行延时（毫秒），默认不使用延时，即delay=0。如果出现提示某某文件不存在时，可以使用100ms的延时解决此问题。
 
