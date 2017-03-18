@@ -1,6 +1,8 @@
 # static-resource-hash-webpack-plugin
 基于WebPack HTML/CSS/JS/Image Hash功能。实现逻辑为 当所有文件生成后，通过查找文件引用来更新Hash后的文件名。不支持动态路径引用。
 
+GitHub地址：https://github.com/li-guang/static-resource-hash-webpack-plugin
+
 ## 使用说明
 **在WebPack中使用时，要将此模块放置在最后，因为模块的执行是在最终生成的文件中进行的。**
 
